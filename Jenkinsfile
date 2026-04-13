@@ -12,5 +12,13 @@ pipeline {
                 echo "Hello World, this is my first Jenkins pipeline using a variable: ${env.MY_VAR}"
             }
         }
+
+        stage('Credentials stage'){
+            steps {
+                withCredentials([string(credentialsID: 'my-secret', variable: 'TOKEN')]) {
+                    echo "The secret token is: ${env.TOKEN}"
+                }
+            }
+        }
     }
 }
