@@ -7,8 +7,10 @@ pipeline{
 
     stages{
         stage('Deploy'){
-            withCredentials([string(credentialsId: 'API_KEY', value: 'API_KEY')]){
-                echo 'Ciao Questo è il deploy usando la API_KEY: ${API_KEY} e ambiente di sviluppo: ${params.DEPLOY_ENV}'
+            steps{
+                withCredentials([string(credentialsId: 'API_KEY', value: 'API_KEY')]){
+                    echo 'Ciao Questo è il deploy usando la API_KEY: ${API_KEY} e ambiente di sviluppo: ${params.DEPLOY_ENV}'
+                }
             }
         }
     }
