@@ -10,7 +10,7 @@ pipeline{
             steps{
                 withCredentials([string(credentialsId: 'API_KEY', value: 'API_KEY')]){
                     echo 'Ciao Questo è il deploy usando la API_KEY: ${API_KEY}'
-                    echo "L'ambiente di sviluppo è: ${params.DEPLOY_ENV}'
+                    echo "L'ambiente di sviluppo è: ${params.DEPLOY_ENV}"
                 }
             }
         }
