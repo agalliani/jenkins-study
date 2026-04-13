@@ -1,6 +1,11 @@
 pipeline {
     
     agent any
+
+    parameters {
+        choice(name: 'CHOICE', choices:['Choice 1', 'Choice 2', 'Choice 3'], description: 'Pick a choice')
+        string(name: ' STRING_PARAM', defaultValue: 'Default string', description: 'This is a string parameter')
+    }
     
     environment {
         MY_VAR = "Value of MY_VAR"
@@ -21,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Credentials stage single brackets'){
+        stage('Credentials stage single brackets: best way to use credentials') {
             steps {
                 withCredentials([string(credentialsId: 'my-secret', variable: 'TOKEN')]) {
                     echo 'The secret token is: ${TOKEN}'
