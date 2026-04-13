@@ -18,19 +18,18 @@ pipeline {
             }
         }
 
-        stage('Credentials stage double brackets'){
-            steps {
-                withCredentials([string(credentialsId: 'my-secret', variable: 'TOKEN')]) {
-                    echo "The secret token is: ${TOKEN}"
-                }
-            }
-        }
-
         stage('Credentials stage single brackets: best way to use credentials') {
             steps {
                 withCredentials([string(credentialsId: 'my-secret', variable: 'TOKEN')]) {
                     echo 'The secret token is: ${TOKEN}'
                 }
+            }
+        }
+
+        stage('Print parameters') {
+            steps {
+                echo "You selected: ${params.CHOICE}"
+                echo "String parameter value: ${params.STRING_PARAM}"
             }
         }
     }
