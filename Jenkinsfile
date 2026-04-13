@@ -16,7 +16,7 @@ pipeline {
         stage('Credentials stage'){
             steps {
                 withCredentials([string(credentialsID: 'my-secret', variable: 'TOKEN')]) {
-                    echo "The secret token is: ${env.TOKEN}"
+                    echo "The secret token is: ${TOKEN}"
                 }
             }
         }
