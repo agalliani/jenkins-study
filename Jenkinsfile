@@ -2,7 +2,7 @@ pipeline {
     
     agent any
     
-    envirnoment {
+    environment {
         MY_VAR = "Value of MY_VAR"
     }
 
