@@ -13,10 +13,18 @@ pipeline {
             }
         }
 
-        stage('Credentials stage'){
+        stage('Credentials stage double brackets'){
             steps {
                 withCredentials([string(credentialsId: 'my-secret', variable: 'TOKEN')]) {
                     echo "The secret token is: ${TOKEN}"
+                }
+            }
+        }
+
+        stage('Credentials stage single brackets'){
+            steps {
+                withCredentials([string(credentialsId: 'my-secret', variable: 'TOKEN')]) {
+                    echo 'The secret token is: ${TOKEN}'
                 }
             }
         }
