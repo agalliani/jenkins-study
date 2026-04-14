@@ -14,10 +14,10 @@ pipeline{
                 }
             }
         }
-        stage('Prova agent linux'){
-            agent {label 'linux'}
+        stage('Prova agent docker'){
+            agent { docker { image 'node:18' } }
             steps{
-                echo 'Questo stage viene eseguito su un agente Linux'
+                sh 'node --version'
             }
 
         }
