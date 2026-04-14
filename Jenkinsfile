@@ -14,5 +14,12 @@ pipeline{
                 }
             }
         }
+        stage('Prova agent linux'){
+            agent {label 'linux'}
+            steps{
+                echo 'Questo stage viene eseguito su un agente Linux'
+            }
+
+        }
     }
 }
